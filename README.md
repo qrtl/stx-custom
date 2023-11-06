@@ -9,7 +9,7 @@
 
 # STX Custom
 
-None
+ Customization modules for stx
 
 <!-- /!\ do not modify below this line -->
 
