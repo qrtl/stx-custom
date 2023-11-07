@@ -16,7 +16,7 @@ odoo_version: 15.0
 org_name: Quartile Limited
 org_slug: qrtl
 rebel_module_groups: []
-repo_description:
+repo_description: null
 repo_name: STX Custom
 repo_slug: stx-custom
 repo_website: https://www.quartile.co
