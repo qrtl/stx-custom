@@ -22,12 +22,21 @@ Portal View Adjust
 
 |badge1| |badge2| |badge3|
 
-This module makes adjustments to use the breadcrumbs_searchbar in Account Details, aligning it with the search bar used on other pages, and hides the hamburger button that appears when the page width is reduced.
+This module makes adjustments to use the breadcrumbs_searchbar in Account Details,
+aligning it with the search bar used on other pages, and hides the hamburger menu that
+appears when the page width is reduced.
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Use Cases / Context
+===================
+
+The user wants to add a .css file to the breadcrumb list based on their requirements and
+apply the breadcrumbs_searchbar to specific pages.
+Then, they want to hide the hamburger menu from the breadcrumbs.
 
 Bug Tracker
 ===========
