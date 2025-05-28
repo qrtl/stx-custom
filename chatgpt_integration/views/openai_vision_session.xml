@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_openai_vision_session_tree" model="ir.ui.view">
+    <field name="name">openai.vision.session.tree</field>
+    <field name="model">openai.vision.session</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="model"/>
+        <field name="temperature"/>
+      </tree>
+    </field>
+  </record>
+  <record id="view_openai_vision_session_form" model="ir.ui.view">
+    <field name="name">openai.vision.session.form</field>
+    <field name="model">openai.vision.session</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="model"/>
+            <field name="temperature"/>
+            <field name="response_format_enabled"/>
+          </group>
+          <notebook>
+            <page string="Input Messages">
+              <field name="input_message_ids" context="{'default_role': 'user'}" mode="tree">
+                <tree editable="bottom" default_order="sequence">
+                  <field name="sequence"/>
+                  <field name="role"/>
+                  <field name="type"/>
+                  <field name="content" widget="text" attrs="{'invisible': [('type', '!=', 'text')]}"/>
+                </tree>
+              </field>
+            </page>
+            <page string="Response Messages">
+              <field name="response_message_ids" context="{'default_role': 'assistant'}" mode="tree">
+                <tree editable="bottom" default_order="sequence">
+                  <field name="sequence"/>
+                  <field name="role"/>
+                  <field name="type"/>
+                  <field name="content" widget="text" attrs="{'invisible': [('type', '!=', 'text')]}"/>
+                </tree>
+              </field>
+            </page>
+            <page string="Response Format" attrs="{'invisible': [('response_format_enabled', '=', False)]}">
+              <group>
+                <field name="response_format_schema" widget="text"/>
+              </group>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record id="action_openai_vision_sessions" model="ir.actions.act_window">
+    <field name="name">OpenAI Vision Sessions</field>
+    <field name="res_model">openai.vision.session</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem id="menu_openai_vision_sessions"
+          name="Vision Sessions"
+          parent="menu_openai_root"
+          action="action_openai_vision_sessions"
+          sequence="10"/>
+</odoo>

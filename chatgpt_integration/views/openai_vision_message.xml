@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_openai_vision_message_tree" model="ir.ui.view">
+        <field name="name">openai.vision.message.tree</field>
+        <field name="model">openai.vision.message</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence"/>
+                <field name="role"/>
+                <field name="type"/>
+                <field name="content" widget="text" attrs="{'invisible': [('type', '!=', 'text')]}"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_openai_vision_message_form" model="ir.ui.view">
+        <field name="name">openai.vision.message.form</field>
+        <field name="model">openai.vision.message</field>
+        <field name="arch" type="xml">
+            <form string="Vision Message">
+                <sheet>
+                    <group>
+                        <field name="sequence"/>
+                        <field name="role"/>
+                        <field name="type"/>
+                    </group>
+                    <group string="Content">
+                        <field name="content" widget="text" attrs="{'invisible': [('type', '!=', 'text')]}"/>
+                        <field name="content" attrs="{'invisible': [('type', '!=', 'image_url')]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <menuitem id="menu_openai_root" name="OpenAI" parent="base.menu_custom" sequence="100"/>
+    <record id="action_openai_vision_messages" model="ir.actions.act_window">
+        <field name="name">OpenAI Vision messages</field>
+        <field name="res_model">openai.vision.message</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_openai_vision_messages"
+          name="Vision messages"
+          parent="menu_openai_root"
+          action="action_openai_vision_messages"
+          sequence="10"/>
+</odoo>

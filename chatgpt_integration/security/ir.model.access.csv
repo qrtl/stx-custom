@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id,perm_read,perm_write,perm_create,perm_unlink
+access_openai_vision_message,access_openai_vision_message,model_openai_vision_message,,1,1,1,1
+access_openai_vision_session,access_openai_vision_session,model_openai_vision_session,,1,1,1,1
