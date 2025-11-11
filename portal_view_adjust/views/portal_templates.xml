@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="portal_my_details_inherit" inherit_id="portal.portal_my_details">
+        <xpath expr="//t[contains(@t-set, 'additional_title')]" position="before">
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
+            <t t-call="portal.portal_searchbar" />
+        </xpath>
+    </template>
+    <template id="portal_searchbar_inherit" inherit_id="portal.portal_searchbar">
+        <xpath expr="//button[@class='navbar-toggler']" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+    </template>
+</odoo>
